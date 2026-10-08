@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chronic Kidney Disease Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="hero">
+    <h1>Chronic Kidney Disease Detection</h1>
+    <p>A traditional machine-learning classification project</p>
+  </header>
+
+  <main class="container">
+    <div class="notice">
+      <strong>Educational project only.</strong> This page shows an ML prediction/screening
+      demo built from a small public dataset. It is <strong>NOT a medical diagnosis</strong>.
+      Always consult a qualified doctor for any health concern.
+    </div>
+
+    {% if errors %}
+    <div class="errors">
+      <ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+
+    {% if result %}
+    <div class="result {{ 'positive' if result.positive else 'negative' }}" id="result">
+      <h2>{{ result.text }}</h2>
+      <p>This is an output of a machine-learning model trained on a small dataset
+         ({{ info.best_model }}). It is a prediction, not a medical diagnosis.</p>
+    </div>
+    {% endif %}
+
+    <form method="POST" action="/" class="card">
+      {% for group in groups %}
+      <fieldset>
+        <legend>{{ group.title }}</legend>
+        <div class="grid">
+          {% for f in group.fields %}
+          <label class="field">
+            <span>{{ f.label }}{% if f.unit %} <small>({{ f.unit }})</small>{% endif %}</span>
+            {% if f.kind == 'select' %}
+              <select name="{{ f.name }}">
+                <option value="">Unknown / not available</option>
+                {% for c in f.choices %}
+                <option value="{{ c }}" {{ 'selected' if entered.get(f.name) == c else '' }}>{{ c }}</option>
+                {% endfor %}
+              </select>
+            {% else %}
+              <input type="number" name="{{ f.name }}" step="{{ f.step }}" min="{{ f.min }}" max="{{ f.max }}"
+                     value="{{ entered.get(f.name, '') }}">
+            {% endif %}
+          </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+      {% endfor %}
+      <p class="hint">Fields may be left blank if unknown (at least half should be filled).
+         Blank values are replaced by typical values from the training data.</p>
+      <button type="submit">Predict</button>
+    </form>
+  </main>
+
+  <footer>Educational ML project &mdash; not for clinical use.</footer>
+  {% if result %}<script>document.getElementById('result').scrollIntoView({behavior:'smooth'});</script>{% endif %}
+</body>
+</html>
