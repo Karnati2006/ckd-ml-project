@@ -1,0 +1,157 @@
+{
+  "numeric": [
+    "age",
+    "bp",
+    "sg",
+    "al",
+    "su",
+    "bgr",
+    "bu",
+    "sc",
+    "sod",
+    "pot",
+    "hemo",
+    "pcv",
+    "wbcc",
+    "rbcc"
+  ],
+  "categorical": [
+    "rbc",
+    "pc",
+    "pcc",
+    "ba",
+    "htn",
+    "dm",
+    "cad",
+    "appet",
+    "pe",
+    "ane"
+  ],
+  "categories": {
+    "rbc": [
+      "abnormal",
+      "normal"
+    ],
+    "pc": [
+      "abnormal",
+      "normal"
+    ],
+    "pcc": [
+      "notpresent",
+      "present"
+    ],
+    "ba": [
+      "notpresent",
+      "present"
+    ],
+    "htn": [
+      "no",
+      "yes"
+    ],
+    "dm": [
+      "no",
+      "yes"
+    ],
+    "cad": [
+      "no",
+      "yes"
+    ],
+    "appet": [
+      "good",
+      "poor"
+    ],
+    "pe": [
+      "no",
+      "yes"
+    ],
+    "ane": [
+      "no",
+      "yes"
+    ]
+  },
+  "numeric_stats": {
+    "age": {
+      "min": 2.0,
+      "max": 90.0,
+      "median": 54.0
+    },
+    "bp": {
+      "min": 50.0,
+      "max": 180.0,
+      "median": 80.0
+    },
+    "sg": {
+      "min": 1.005,
+      "max": 1.025,
+      "median": 1.02
+    },
+    "al": {
+      "min": 0.0,
+      "max": 5.0,
+      "median": 0.0
+    },
+    "su": {
+      "min": 0.0,
+      "max": 5.0,
+      "median": 0.0
+    },
+    "bgr": {
+      "min": 22.0,
+      "max": 490.0,
+      "median": 120.5
+    },
+    "bu": {
+      "min": 1.5,
+      "max": 322.0,
+      "median": 42.0
+    },
+    "sc": {
+      "min": 0.4,
+      "max": 76.0,
+      "median": 1.2
+    },
+    "sod": {
+      "min": 4.5,
+      "max": 150.0,
+      "median": 138.0
+    },
+    "pot": {
+      "min": 2.5,
+      "max": 7.6,
+      "median": 4.3
+    },
+    "hemo": {
+      "min": 3.1,
+      "max": 17.8,
+      "median": 12.6
+    },
+    "pcv": {
+      "min": 9.0,
+      "max": 54.0,
+      "median": 40.0
+    },
+    "wbcc": {
+      "min": 2200.0,
+      "max": 26400.0,
+      "median": 8100.0
+    },
+    "rbcc": {
+      "min": 2.1,
+      "max": 6.5,
+      "median": 4.8
+    }
+  },
+  "target_meaning": {
+    "0": "Not CKD",
+    "1": "CKD"
+  },
+  "best_model": "Random Forest",
+  "test_metrics": {
+    "Accuracy": 1.0,
+    "Precision": 1.0,
+    "Recall": 1.0,
+    "F1 Score": 1.0
+  },
+  "sklearn_version": "1.6.1",
+  "python_version": "3.13.16"
+}
