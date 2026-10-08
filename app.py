@@ -9,7 +9,7 @@ import pandas as pd
 from flask import Flask, render_template, request
 
 BASE = Path(__file__).resolve().parent
-MODEL_DIR = BASE / "model"
+MODEL_DIR = BASE 
 
 app = Flask(__name__)
 
